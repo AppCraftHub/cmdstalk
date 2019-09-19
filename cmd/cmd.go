@@ -98,7 +98,7 @@ func (cmd *Cmd) WaitChan() <-chan WaitResult {
 func readerToChannel(reader io.Reader) <-chan []byte {
 	c := make(chan []byte)
 	go func() {
-		buf := make([]byte, 1024)
+		buf := make([]byte, 10240)
 		for {
 			n, err := reader.Read(buf)
 			if n > 0 {
